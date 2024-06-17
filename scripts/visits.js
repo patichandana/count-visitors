@@ -19,6 +19,7 @@ const visits = async (request, reply) => {
         await fsPromises.access(filepath, fs.constants.W_OK | fs.constants.R_OK);
     } catch (err) {
         if (err?.code == "ENOENT") {
+            await fsPromises.mkdir(CONFIG.COUNTER_FILES_DIR, { recursive: true });
             await fsPromises.writeFile(filepath, "0");
         }
     }
