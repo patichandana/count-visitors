@@ -1,9 +1,9 @@
-const fsPromises = require("node:fs/promises");
-const fs = require("node:fs")
-const path = require("node:path");
+import fsPromises from "node:fs/promises";
+import fs from "node:fs";
+import path from "node:path";
 
-const { prepareSVG } = require("./prepareSVG");
-const { CONFIG } = require("../config.js")
+import { prepareSVG } from "./prepareSVG.js";
+import { CONFIG } from "../config.js";
 
 const visits = async (request, reply) => {
     const username = request.params.username;
@@ -35,4 +35,4 @@ const visits = async (request, reply) => {
     }
 }
 
-module.exports = { visits: visits }
+export {visits};

@@ -1,8 +1,10 @@
-const fastify = require("fastify")({
+import Fastify  from "fastify";
+import {visits} from "./scripts/visits.js";
+import { CONFIG } from "./config.js";
+
+const fastify = Fastify({
     logger: true
-});
-const {visits} = require("./scripts/visits");
-const { CONFIG } = require("./config.js")
+})
 
 fastify.get('/visits/:username', visits);
 

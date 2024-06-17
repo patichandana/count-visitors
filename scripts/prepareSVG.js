@@ -1,4 +1,4 @@
-const fsPromises = require("node:fs/promises")
+import fsPromises from "node:fs/promises";
 const templatePromise = fsPromises.readFile("resources/StandardTemplate.svg", { encoding: 'utf-8' });
 
 const prepareSVG = async (visits) => {
@@ -6,4 +6,4 @@ const prepareSVG = async (visits) => {
     return template.replace("siteVisitorsCount", visits)
 }
 
-module.exports = {prepareSVG: prepareSVG}
+export { prepareSVG };

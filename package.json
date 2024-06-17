@@ -7,6 +7,7 @@
     "fastify": "^4.28.0",
     "rimraf": "^5.0.7"
   },
+  "type": "module",
   "scripts": {
     "start": "node --env-file=.env index.js",
     "dev": "node --env-file=.env --watch index.js",

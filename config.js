@@ -3,4 +3,5 @@ const CONFIG = {
     COUNTER_FILES_DIR: process.env.COUNTER_DATA_DIR ?? "counter_data"
 }
 
-module.exports = {CONFIG: CONFIG}
+// module.exports = {CONFIG: CONFIG}
+export { CONFIG }
