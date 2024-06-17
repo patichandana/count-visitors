@@ -6,7 +6,14 @@ const { prepareSVG } = require("./prepareSVG");
 const { CONFIG } = require("../config.js")
 
 const visits = async (request, reply) => {
+    const username = request.params.username;
     const filepath = path.join(CONFIG.COUNTER_FILES_DIR, request.params.username)
+    const validateUserNameRegex = /^[a-zA-Z0-9-]+$/;
+
+    if (!validateUserNameRegex.test(username)) {
+        reply.send("enter valid username").code("400")
+        return;
+    }
 
     try {
         await fsPromises.access(filepath, fs.constants.W_OK | fs.constants.R_OK);
