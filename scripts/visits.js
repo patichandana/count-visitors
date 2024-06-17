@@ -8,7 +8,7 @@ const { CONFIG } = require("../config.js")
 const visits = async (request, reply) => {
     const username = request.params.username;
     const filepath = path.join(CONFIG.COUNTER_FILES_DIR, request.params.username)
-    const validateUserNameRegex = /^[a-zA-Z0-9-]+$/;
+    const validateUserNameRegex = /^[a-zA-Z0-9-]+$/; //regex to accept strings that contain alphanumberic characteres, and hyphen
 
     if (!validateUserNameRegex.test(username)) {
         reply.send("enter valid username").code("400")
