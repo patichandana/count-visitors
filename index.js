@@ -8,7 +8,7 @@ const fastify = Fastify({
 
 fastify.get('/visits/:username', visits);
 
-fastify.listen({port: CONFIG.PORT}, (err, address) => {
+fastify.listen({host: CONFIG.HOST, port: CONFIG.PORT}, (err, address) => {
     if(err) {
         fastify.log.error(err)
         process.exit(1)
