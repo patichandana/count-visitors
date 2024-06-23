@@ -29,7 +29,7 @@ const visits = async (request, reply) => {
         const counter = Number(data) + 1;
         await fsPromises.writeFile(filepath, '' + counter)
         const image = await prepareSVG(counter);
-        reply.send(image);
+        reply.header('content-type', 'image/svg+xml; charset=utf-8').send(image);
     } catch (err) {
         reply.send("failed to fetch the count").code(500);
     }
