@@ -1,0 +1,4 @@
+counter_data
+node_modules
+docker*
+.git
