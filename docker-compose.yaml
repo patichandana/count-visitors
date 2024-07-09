@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  count-visitors-app:
+    container_name: count-visitors-app
+    image: patichandana/count-visitors:amd64
+    restart: always
+    networks:
+      - countvisits
+
+  cloudflared:
+    container_name: patichan-cloudflare-container
+    image: cloudflare/cloudflared:latest
+    restart: always
+    command: tunnel --no-autoupdate --loglevel debug run --token ${CLOUDFARE_TOKEN}
+    networks:
+      - countvisits
+
+networks:
+  countvisits:
+    name: patichan-cloudflare-bridge-network
+    external: true
